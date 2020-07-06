@@ -63,15 +63,19 @@
                     $scandir = scandir(dirname(__FILE__,2)."/justificatif/".$_SESSION['idVisiteur']."/");
                     $rep=dirname(__FILE__,2)."/justificatif/".$_SESSION['idVisiteur']."/";
                     //echo $rep;
-                    foreach($scandir as $fichier){
+                    echo(dirname((__FILE__)));
+                    $lien = dirname(__FILE__,2)."/justificatif";
+                    foreach ($scandir as $fichier){
                     if($fichier == '.' || $fichier == '..')
                     {
                     }
                     else
                     {
+                     
                     ?>
-                   <a href="http://localhost:8081/dossexamenappligsb/e4p1gsb2020/justificatif/<?php echo $_SESSION['idVisiteur'] ?>/<?php echo $fichier ?>"><?php echo $fichier ?></a>
-                    <a href="http://localhost:8081/dossexamenappligsb/e4p1gsb2020/efface.php?nomfich=<?php echo $rep.$fichier ?>" 
+<!--                    <a href="<?php echo $rep.$fichier ?>/<?php echo $fichier ?>"><?php echo $fichier ?></a>-->
+                    <a href="http://localhost:8081/dossexamenappligsb/e4p1gsb2020/justificatif/<?php echo $_SESSION['idVisiteur'] ?>/<?php echo $fichier ?>"><?php echo $fichier ?></a>
+                   <a href="http://localhost:8081/dossexamenappligsb/e4p1gsb2020/efface.php?nomfich=<?php echo $rep.$fichier ?>" 
                            onclick="return confirm('Voulez-vous vraiment supprimer ce frais?');">Supprimer ce justificatif</a>
                   
                     <?php
